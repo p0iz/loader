@@ -41,7 +41,7 @@ SCENARIO("Loading non-existent library")
 			}
 			THEN("symbol loads return null")
 			{
-				REQUIRE(lib.func<int(int)>("test") == nullptr);
+				REQUIRE(!lib.func<int(int)>("test"));
 			}
 		}
 	}
