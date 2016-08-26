@@ -30,7 +30,7 @@ SCENARIO("Loading a shared library")
 
 SCENARIO("Loading non-existent library")
 {
-	GIVEN("an non-existing library name")
+	GIVEN("a non-existing library name")
 	{
 		WHEN("an attempt is made to load the library")
 		{
