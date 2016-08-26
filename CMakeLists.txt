@@ -11,11 +11,17 @@ include_directories(include)
 install(DIRECTORY include DESTINATION include)
 
 # Ensure we use the correct OS calls
-if (WIN32)
+if(WIN32)
 	set(OsSuffix "w32")
-else()
+elseif(UNIX)
 	set(OsSuffix "posix")
+else()
+	message(FATAL_ERROR "Unsupported OS.")
 endif()
 
 add_library(loader src/library.cpp src/library_${OsSuffix}.cpp)
+if(UNIX)
+	target_link_libraries(loader dl)
+endif()
+
 install(TARGETS loader DESTINATION lib)
